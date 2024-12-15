@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: FastAPI CRUD Application
+  version: 0.10
+servers:
+  - url: http://localhost:8000
+paths:
+  /:
+    get:
+      summary: Get Main Page
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+  /user/{user_id}:
+    get:
+      summary: Get Users
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+    delete:
+      summary: Delete User
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+  /user/{username}/{age}:
+    post:
+      summary: Post User
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: age
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+  /user/{user_id}/{username}/{age}:
+    put:
+      summary: Update User
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: age
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
